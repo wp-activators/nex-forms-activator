@@ -5,8 +5,8 @@
  * Plugin URI:        https://github.com/wp-activators/nex-forms-activator
  * Description:       NEX-Forms Plugin Activator
  * Version:           1.0.0
- * Requires at least: 5.3.0
- * Requires PHP:      7.4
+ * Requires at least: 3.1.0
+ * Requires PHP:      7.1
  * Author:            mohamedhk2
  * Author URI:        https://github.com/mohamedhk2
  **/
@@ -29,33 +29,27 @@ add_filter( 'pre_http_request', function ( $pre, $parsed_args, $url ) {
 			switch ( true ) {
 				#license checking
 				case $parsed_args['body']['check_key'] ?? false :
-					return [
-						'response' => [ 'code' => 200, 'message' => 'OK' ],
-						'body'     => json_encode( [
-							'client_info'  => [
-								'purchase_code'    => 'free4all',
-								'envato_user_name' => 'byMHK',
-								'license_type'     => 'PRO',
-								'for_site'         => 'ALL',
-								'date_puchased'    => date( 'Y-m-d' ),
-							],
-							'license_info' => [
-								'supported_until' => date( 'Y-m-d', strtotime( '+1000 year' ) ),
-							],
-							'ver'          => 'true',
-						] )
-					];
+					return activator_json_response( [
+						'client_info'  => [
+							'purchase_code'    => 'free4all',
+							'envato_user_name' => 'byMHK',
+							'license_type'     => 'PRO',
+							'for_site'         => 'ALL',
+							'date_puchased'    => date( 'Y-m-d' ),
+						],
+						'license_info' => [
+							'supported_until' => date( 'Y-m-d', strtotime( '+1000 year' ) ),
+						],
+						'ver'          => 'true',
+					] );
 				# license verification
 				case $parsed_args['body']['verify-2'] ?? false :
-					return [
-						'response' => [ 'code' => 200, 'message' => 'OK' ],
-						'body'     => json_encode( [
-							'error'   => 0,
-							'key'     => 'license',
-							'pc'      => 'free4all',
-							'message' => 'License Activated Successfully',
-						] )
-					];
+					return activator_json_response( [
+						'error'   => 0,
+						'key'     => 'license',
+						'pc'      => 'free4all',
+						'message' => 'License Activated Successfully',
+					] );
 			}
 	}
 
