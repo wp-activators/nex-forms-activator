@@ -4,7 +4,7 @@
  * Plugin Name:       NEX-Forms Activator
  * Plugin URI:        https://github.com/wp-activators/nex-forms-activator
  * Description:       NEX-Forms Plugin Activator
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 3.1.0
  * Requires PHP:      7.1
  * Author:            mohamedhk2
@@ -15,10 +15,11 @@ defined( 'ABSPATH' ) || exit;
 const NEX_FORMS_ACTIVATOR_NAME   = 'NEX-Forms Activator';
 const NEX_FORMS_ACTIVATOR_DOMAIN = 'nex-forms-activator';
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'functions.php';
+$directory = is_dir( WP_PLUGIN_DIR . DIRECTORY_SEPARATOR . 'nex-forms' ) ? 'nex-forms' : 'nex-forms-express-wp-form-builder';
 if (
 	activator_admin_notice_ignored()
-	|| activator_admin_notice_plugin_install( 'nex-forms-express-wp-form-builder/main.php', 'nex-forms-express-wp-form-builder', 'NEX-Forms - Ultimate', NEX_FORMS_ACTIVATOR_NAME, NEX_FORMS_ACTIVATOR_DOMAIN )
-	|| activator_admin_notice_plugin_activate( 'nex-forms-express-wp-form-builder/main.php', NEX_FORMS_ACTIVATOR_NAME, NEX_FORMS_ACTIVATOR_DOMAIN )
+	|| activator_admin_notice_plugin_install( "$directory/main.php", 'nex-forms-express-wp-form-builder', 'NEX-Forms - Ultimate', NEX_FORMS_ACTIVATOR_NAME, NEX_FORMS_ACTIVATOR_DOMAIN )
+	|| activator_admin_notice_plugin_activate( "$directory/main.php", NEX_FORMS_ACTIVATOR_NAME, NEX_FORMS_ACTIVATOR_DOMAIN )
 ) {
 	return;
 }
