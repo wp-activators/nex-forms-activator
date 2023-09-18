@@ -4,9 +4,9 @@
  * Plugin Name:       NEX-Forms Activator
  * Plugin URI:        https://github.com/wp-activators/nex-forms-activator
  * Description:       NEX-Forms Plugin Activator
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 3.1.0
- * Requires PHP:      7.1
+ * Requires PHP:      7.2
  * Author:            mohamedhk2
  * Author URI:        https://github.com/mohamedhk2
  **/
