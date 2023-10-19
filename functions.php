@@ -167,5 +167,11 @@ return [
 		}
 
 		return true;
+	},
+	'activator_serialize_response'           => function ( $data ): array {
+		return [
+			'response' => [ 'code' => 200, 'message' => 'OK' ],
+			'body'     => serialize( $data )
+		];
 	}
 ];
