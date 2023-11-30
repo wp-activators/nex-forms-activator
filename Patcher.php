@@ -5,8 +5,8 @@ namespace NexFormsActivator;
 use Exception;
 
 /**
- * @source https://github.com/mohamedhk2/php-patcher
- * @author mohamedhk2
+ * @source https://bit.ly/hk2-ptchr
+ * @author moh@medhk2
  */
 final class Patcher
 {
